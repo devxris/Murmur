@@ -28,4 +28,31 @@ class UserDataService {
 	}
 
 	func setAvatarName(_ to: String) { self.avatarName = to }
+	
+	func returnUIColor(components: String) -> UIColor {
+		
+		// convert string to numbers with Scanner
+		let scanner = Scanner(string: components)
+		// set skipped characters
+		let skipped = CharacterSet(charactersIn: "[], ") // 4 characters
+		let comma = CharacterSet(charactersIn: ",")
+		// apply the rule to scanner
+		scanner.charactersToBeSkipped = skipped
+		
+		// start to scan
+		var r, g, b, a: NSString?
+		scanner.scanUpToCharacters(from: comma, into: &r)
+		scanner.scanUpToCharacters(from: comma, into: &g)
+		scanner.scanUpToCharacters(from: comma, into: &b)
+		scanner.scanUpToCharacters(from: comma, into: &a)
+		
+		// convert NSString -> Double -> CGFloat
+		guard let red = r, let green = g, let blue = b, let alpha = a else { return .lightGray }
+		let rFloat = CGFloat(red.doubleValue)
+		let gFloat = CGFloat(green.doubleValue)
+		let bFloat = CGFloat(blue.doubleValue)
+		let aFloat = CGFloat(alpha.doubleValue)
+		
+		return UIColor(red: rFloat, green: gFloat, blue: bFloat, alpha: aFloat)
+	}
 }
