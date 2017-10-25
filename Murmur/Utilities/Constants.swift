@@ -29,6 +29,7 @@ struct URLs {
 	static let base = "https://murmurchat.herokuapp.com/v1/"
 	static let register = URLs.base + "account/register"
 	static let login = URLs.base + "account/login"
+	static let addUser = URLs.base + "user/add"
 }
 
 // Headers
