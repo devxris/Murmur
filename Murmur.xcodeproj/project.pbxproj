@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		306B39CC2FB84D76D88CD359 /* Pods_Murmur.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EE361FA6493A72259CB1C9 /* Pods_Murmur.framework */; };
 		45E9A0BC1FA03B3B00E8B911 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9A0BB1FA03B3B00E8B911 /* AppDelegate.swift */; };
 		45E9A0BE1FA03B3B00E8B911 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9A0BD1FA03B3B00E8B911 /* MainVC.swift */; };
 		45E9A0C11FA03B3B00E8B911 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E9A0BF1FA03B3B00E8B911 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31D8B4851128673EA7881847 /* Pods-Murmur.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Murmur.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Murmur/Pods-Murmur.debug.xcconfig"; sourceTree = "<group>"; };
 		45E9A0B81FA03B3B00E8B911 /* Murmur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Murmur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E9A0BB1FA03B3B00E8B911 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45E9A0BD1FA03B3B00E8B911 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		45E9A0C21FA03B3B00E8B911 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45E9A0C51FA03B3B00E8B911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45E9A0C71FA03B3B00E8B911 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73EE361FA6493A72259CB1C9 /* Pods_Murmur.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Murmur.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B638BBC6BC8BF162F7F421B2 /* Pods-Murmur.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Murmur.release.xcconfig"; path = "Pods/Target Support Files/Pods-Murmur/Pods-Murmur.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				306B39CC2FB84D76D88CD359 /* Pods_Murmur.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				45E9A0BA1FA03B3B00E8B911 /* Murmur */,
 				45E9A0B91FA03B3B00E8B911 /* Products */,
+				62FBA6C0EA7C5F0BFD4B08BF /* Pods */,
+				A67747056E94B8F4F8879E49 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +95,23 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		62FBA6C0EA7C5F0BFD4B08BF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31D8B4851128673EA7881847 /* Pods-Murmur.debug.xcconfig */,
+				B638BBC6BC8BF162F7F421B2 /* Pods-Murmur.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A67747056E94B8F4F8879E49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73EE361FA6493A72259CB1C9 /* Pods_Murmur.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,9 +119,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45E9A0CA1FA03B3B00E8B911 /* Build configuration list for PBXNativeTarget "Murmur" */;
 			buildPhases = (
+				92936843FE3629645C9ED2AE /* [CP] Check Pods Manifest.lock */,
 				45E9A0B41FA03B3B00E8B911 /* Sources */,
 				45E9A0B51FA03B3B00E8B911 /* Frameworks */,
 				45E9A0B61FA03B3B00E8B911 /* Resources */,
+				3C942ABB56910F437717C607 /* [CP] Embed Pods Frameworks */,
+				72309A640C99819B249AAA7E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,6 +181,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C942ABB56910F437717C607 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Murmur/Pods-Murmur-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72309A640C99819B249AAA7E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Murmur/Pods-Murmur-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92936843FE3629645C9ED2AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		45E9A0B41FA03B3B00E8B911 /* Sources */ = {
@@ -296,6 +371,7 @@
 		};
 		45E9A0CB1FA03B3B00E8B911 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31D8B4851128673EA7881847 /* Pods-Murmur.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -311,6 +387,7 @@
 		};
 		45E9A0CC1FA03B3B00E8B911 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B638BBC6BC8BF162F7F421B2 /* Pods-Murmur.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
