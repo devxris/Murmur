@@ -24,4 +24,9 @@ class ChannelVC: UIViewController {
 	@IBAction func login(_ sender: UIButton) {
 		performSegue(withIdentifier: Segues.showLoginVC, sender: nil)
 	}
+	
+	// navigations
+	@IBAction func unwindToChannelVC(segue: UIStoryboardSegue) {
+		
+	}
 }

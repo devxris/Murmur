@@ -15,5 +15,5 @@ class LoginVC: UIViewController {
 
 	// taget actions
 	@IBAction func close(_ sender: UIButton) { dismiss(animated: true, completion: nil) }
-	
+	@IBAction func signUp(_ sender: UIButton) { performSegue(withIdentifier: Segues.showCreatAccountVC, sender: nil) }
 }
