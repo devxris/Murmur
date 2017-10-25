@@ -110,7 +110,7 @@
                                 <rect key="frame" x="273" y="87" width="22" height="22"/>
                                 <state key="normal" image="addChannel"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ozX-4k-u0Z" customClass="CircleImageView" customModule="Murmur" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ozX-4k-u0Z">
                                 <rect key="frame" x="16" y="703" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="9GJ-VU-U0v"/>
@@ -216,7 +216,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="meS-gP-Nck">
                                 <rect key="frame" x="62.666666666666657" y="328" width="249.99999999999997" height="78"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZL9-Xu-i5r">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZL9-Xu-i5r" customClass="RoundedButton" customModule="Murmur" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
                                         <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -229,6 +229,9 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornorRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
@@ -410,9 +413,15 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornorRadius">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createAccount:" destination="e4l-Pa-bdD" eventType="touchUpInside" id="qve-Fe-4hG"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="Wup-bW-ACP" customClass="CircleImageView" customModule="Murmur" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="Wup-bW-ACP">
                                 <rect key="frame" x="137.66666666666666" y="356" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="72j-7d-T1Q"/>
@@ -428,6 +437,9 @@
                                 <state key="normal" title="Choose Avatar">
                                     <color key="titleColor" red="0.42530593280000001" green="0.68519061800000003" blue="0.78578478100000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="pickAvatar:" destination="e4l-Pa-bdD" eventType="touchUpInside" id="tlT-8U-LkS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaB-kd-u1x">
                                 <rect key="frame" x="102" y="494" width="214" height="32"/>
@@ -435,6 +447,9 @@
                                 <state key="normal" title="Generate Background Color">
                                     <color key="titleColor" red="0.42530593280000001" green="0.68519061800000003" blue="0.78578478100000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="pickAvatarColor:" destination="e4l-Pa-bdD" eventType="touchUpInside" id="JIQ-xr-Bnp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -459,6 +474,10 @@
                         <viewLayoutGuide key="safeArea" id="tek-5g-ENt"/>
                     </view>
                     <connections>
+                        <outlet property="email" destination="uQn-mC-5ce" id="0Xg-9G-zvx"/>
+                        <outlet property="password" destination="5Pv-3B-I12" id="WTI-eX-noQ"/>
+                        <outlet property="userImage" destination="Wup-bW-ACP" id="NTL-f9-t4Z"/>
+                        <outlet property="username" destination="dW7-Qc-TyY" id="ZCB-eA-74m"/>
                         <segue destination="ore-XR-ZJH" kind="unwind" identifier="UnwindToChannelVC" unwindAction="unwindToChannelVCWithSegue:" id="9qc-hS-CCO"/>
                     </connections>
                 </viewController>
