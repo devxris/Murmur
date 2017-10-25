@@ -15,6 +15,7 @@
 		45E9A0D41FA0463B00E8B911 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E9A0D31FA0463B00E8B911 /* SWRevealViewController.m */; };
 		45E9A0D61FA048D000E8B911 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9A0D51FA048D000E8B911 /* ChatVC.swift */; };
 		45E9A0D81FA048E200E8B911 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9A0D71FA048E200E8B911 /* ChannelVC.swift */; };
+		45E9A0DB1FA052E000E8B911 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9A0DA1FA052E000E8B911 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		45E9A0D31FA0463B00E8B911 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		45E9A0D51FA048D000E8B911 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		45E9A0D71FA048E200E8B911 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
+		45E9A0DA1FA052E000E8B911 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		73EE361FA6493A72259CB1C9 /* Pods_Murmur.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Murmur.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B638BBC6BC8BF162F7F421B2 /* Pods-Murmur.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Murmur.release.xcconfig"; path = "Pods/Target Support Files/Pods-Murmur/Pods-Murmur.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +71,7 @@
 			children = (
 				45E9A0D01FA0461D00E8B911 /* SWRevealKit */,
 				45E9A0CD1FA03B5100E8B911 /* Resources */,
+				45E9A0D91FA052C200E8B911 /* CustomView */,
 				45E9A0CE1FA03B6100E8B911 /* View */,
 				45E9A0CF1FA03B6900E8B911 /* Controller */,
 			);
@@ -111,6 +114,14 @@
 				45E9A0D11FA0463A00E8B911 /* Murmur-Bridging-Header.h */,
 			);
 			path = SWRevealKit;
+			sourceTree = "<group>";
+		};
+		45E9A0D91FA052C200E8B911 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				45E9A0DA1FA052E000E8B911 /* GradientView.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		62FBA6C0EA7C5F0BFD4B08BF /* Pods */ = {
@@ -256,6 +267,7 @@
 			files = (
 				45E9A0D81FA048E200E8B911 /* ChannelVC.swift in Sources */,
 				45E9A0D61FA048D000E8B911 /* ChatVC.swift in Sources */,
+				45E9A0DB1FA052E000E8B911 /* GradientView.swift in Sources */,
 				45E9A0BC1FA03B3B00E8B911 /* AppDelegate.swift in Sources */,
 				45E9A0D41FA0463B00E8B911 /* SWRevealViewController.m in Sources */,
 			);
