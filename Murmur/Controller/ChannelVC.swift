@@ -38,7 +38,15 @@ class ChannelVC: UIViewController {
 	}
 	
 	// target actions
-	@IBAction func login(_ sender: UIButton) { performSegue(withIdentifier: Segues.showLoginVC, sender: nil) }
+	@IBAction func login(_ sender: UIButton) {
+		if AuthService.instance.isLoggedIn { // show ProfileVC
+			let profileVC = ProfileVC()
+			profileVC.modalPresentationStyle = .custom
+			present(profileVC, animated: true, completion: nil)
+		} else { // show LoginVC
+			performSegue(withIdentifier: Segues.showLoginVC, sender: nil)
+		}
+	}
 	
 	// navigations
 	@IBAction func unwindToChannelVC(segue: UIStoryboardSegue) { }

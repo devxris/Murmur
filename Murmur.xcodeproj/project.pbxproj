@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		306B39CC2FB84D76D88CD359 /* Pods_Murmur.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EE361FA6493A72259CB1C9 /* Pods_Murmur.framework */; };
+		4525F91F1FA0E58E00E431CB /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4525F91D1FA0E58E00E431CB /* ProfileVC.swift */; };
+		4525F9201FA0E58E00E431CB /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4525F91E1FA0E58E00E431CB /* ProfileVC.xib */; };
 		452990CF1FA07BF100C1B5FD /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452990CE1FA07BF100C1B5FD /* AuthService.swift */; };
 		452990D11FA0837A00C1B5FD /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452990D01FA0837A00C1B5FD /* RoundedButton.swift */; };
 		4571D9721FA0904700FCC988 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571D9711FA0904700FCC988 /* UserDataService.swift */; };
@@ -29,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		31D8B4851128673EA7881847 /* Pods-Murmur.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Murmur.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Murmur/Pods-Murmur.debug.xcconfig"; sourceTree = "<group>"; };
+		4525F91D1FA0E58E00E431CB /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		4525F91E1FA0E58E00E431CB /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		452990CE1FA07BF100C1B5FD /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		452990D01FA0837A00C1B5FD /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		4571D9711FA0904700FCC988 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				45E9A0C41FA03B3B00E8B911 /* LaunchScreen.storyboard */,
 				45E9A0BF1FA03B3B00E8B911 /* Main.storyboard */,
 				4571D9751FA0992100FCC988 /* AvatarCell.swift */,
+				4525F91E1FA0E58E00E431CB /* ProfileVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 				45E9A0DF1FA05A7000E8B911 /* LoginVC.swift */,
 				45E9A0E11FA05C3D00E8B911 /* CreateAccountVC.swift */,
 				4571D9731FA097E400FCC988 /* AvatarPickerVC.swift */,
+				4525F91D1FA0E58E00E431CB /* ProfileVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -247,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4525F9201FA0E58E00E431CB /* ProfileVC.xib in Resources */,
 				45E9A0C61FA03B3B00E8B911 /* LaunchScreen.storyboard in Resources */,
 				45E9A0C31FA03B3B00E8B911 /* Assets.xcassets in Resources */,
 				45E9A0C11FA03B3B00E8B911 /* Main.storyboard in Resources */,
@@ -308,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4525F91F1FA0E58E00E431CB /* ProfileVC.swift in Sources */,
 				45E9A0D81FA048E200E8B911 /* ChannelVC.swift in Sources */,
 				4571D9741FA097E400FCC988 /* AvatarPickerVC.swift in Sources */,
 				458D95EE1FA0CFE0001140EA /* CircleImageView.swift in Sources */,
