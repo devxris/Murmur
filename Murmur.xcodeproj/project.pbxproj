@@ -13,6 +13,7 @@
 		45E9A0C11FA03B3B00E8B911 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E9A0BF1FA03B3B00E8B911 /* Main.storyboard */; };
 		45E9A0C31FA03B3B00E8B911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E9A0C21FA03B3B00E8B911 /* Assets.xcassets */; };
 		45E9A0C61FA03B3B00E8B911 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E9A0C41FA03B3B00E8B911 /* LaunchScreen.storyboard */; };
+		45E9A0D41FA0463B00E8B911 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E9A0D31FA0463B00E8B911 /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		45E9A0C21FA03B3B00E8B911 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45E9A0C51FA03B3B00E8B911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45E9A0C71FA03B3B00E8B911 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45E9A0D11FA0463A00E8B911 /* Murmur-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Murmur-Bridging-Header.h"; sourceTree = "<group>"; };
+		45E9A0D21FA0463B00E8B911 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		45E9A0D31FA0463B00E8B911 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		73EE361FA6493A72259CB1C9 /* Pods_Murmur.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Murmur.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B638BBC6BC8BF162F7F421B2 /* Pods-Murmur.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Murmur.release.xcconfig"; path = "Pods/Target Support Files/Pods-Murmur/Pods-Murmur.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +65,7 @@
 		45E9A0BA1FA03B3B00E8B911 /* Murmur */ = {
 			isa = PBXGroup;
 			children = (
+				45E9A0D01FA0461D00E8B911 /* SWRevealKit */,
 				45E9A0CD1FA03B5100E8B911 /* Resources */,
 				45E9A0CE1FA03B6100E8B911 /* View */,
 				45E9A0CF1FA03B6900E8B911 /* Controller */,
@@ -93,6 +98,16 @@
 				45E9A0BD1FA03B3B00E8B911 /* MainVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		45E9A0D01FA0461D00E8B911 /* SWRevealKit */ = {
+			isa = PBXGroup;
+			children = (
+				45E9A0D21FA0463B00E8B911 /* SWRevealViewController.h */,
+				45E9A0D31FA0463B00E8B911 /* SWRevealViewController.m */,
+				45E9A0D11FA0463A00E8B911 /* Murmur-Bridging-Header.h */,
+			);
+			path = SWRevealKit;
 			sourceTree = "<group>";
 		};
 		62FBA6C0EA7C5F0BFD4B08BF /* Pods */ = {
@@ -147,6 +162,7 @@
 				TargetAttributes = {
 					45E9A0B71FA03B3B00E8B911 = {
 						CreatedOnToolsVersion = 9.0.1;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -237,6 +253,7 @@
 			files = (
 				45E9A0BE1FA03B3B00E8B911 /* MainVC.swift in Sources */,
 				45E9A0BC1FA03B3B00E8B911 /* AppDelegate.swift in Sources */,
+				45E9A0D41FA0463B00E8B911 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,12 +391,15 @@
 			baseConfigurationReference = 31D8B4851128673EA7881847 /* Pods-Murmur.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9H46LQG73T;
 				INFOPLIST_FILE = "$(SRCROOT)/Murmur/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DevXris.Murmur;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Murmur/SWRevealKit/Murmur-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -390,12 +410,14 @@
 			baseConfigurationReference = B638BBC6BC8BF162F7F421B2 /* Pods-Murmur.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9H46LQG73T;
 				INFOPLIST_FILE = "$(SRCROOT)/Murmur/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DevXris.Murmur;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Murmur/SWRevealKit/Murmur-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
