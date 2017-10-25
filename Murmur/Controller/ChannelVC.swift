@@ -9,11 +9,19 @@
 import UIKit
 
 class ChannelVC: UIViewController {
+	
+	// outlets
+	@IBOutlet weak var loginButton: UIButton!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		// SWRevealViewController built-in rear view width adjustment
 		self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
+	}
+	
+	// target actions
+	@IBAction func login(_ sender: UIButton) {
+		performSegue(withIdentifier: Segues.showLoginVC, sender: nil)
 	}
 }
