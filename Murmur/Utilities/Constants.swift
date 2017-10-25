@@ -37,3 +37,13 @@ struct URLs {
 struct Header {
 	static let normal = ["Content-Type": "application/json; charset=utf-8"]
 }
+
+// Colors
+struct Colors {
+	static let murmurPurplePlaceHolder = #colorLiteral(red: 0.3254901961, green: 0.4196078431, blue: 0.7764705882, alpha: 0.5)
+}
+
+// Notifications
+struct NotificationName {
+	static let userDataDidChange = Notification.Name("notificationUserDataDidChange")
+}
