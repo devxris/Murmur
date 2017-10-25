@@ -28,4 +28,10 @@ struct DefaultKeys {
 struct URLs {
 	static let base = "https://murmurchat.herokuapp.com/v1/"
 	static let register = URLs.base + "account/register"
+	static let login = URLs.base + "account/login"
+}
+
+// Headers
+struct Header {
+	static let normal = ["Content-Type": "application/json; charset=utf-8"]
 }
