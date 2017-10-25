@@ -43,11 +43,9 @@ class CreateAccountVC: UIViewController {
 		}
 	}
 	
-	@IBAction func pickAvatar(_ sender: UIButton) {
-	}
+	@IBAction func close(_ sender: UIButton) { performSegue(withIdentifier: Segues.unwindToChannelVC, sender: nil) }
+	@IBAction func pickAvatar(_ sender: UIButton) { performSegue(withIdentifier: Segues.showAvatarPicker, sender: nil) }
 	
 	@IBAction func pickAvatarColor(_ sender: UIButton) {
 	}
-	
-	@IBAction func close(_ sender: UIButton) { performSegue(withIdentifier: Segues.unwindToChannelVC, sender: nil) }
 }

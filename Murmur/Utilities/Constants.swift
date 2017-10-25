@@ -15,6 +15,7 @@ struct Segues {
 	static let showLoginVC = "ShowLoginVC"
 	static let showCreatAccountVC = "ShowCreateAccountVC"
 	static let unwindToChannelVC = "UnwindToChannelVC"
+	static let showAvatarPicker = "ShowAvatarPicker"
 }
 
 // UserDefaults
