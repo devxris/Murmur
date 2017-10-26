@@ -42,17 +42,32 @@ class ChatVC: UIViewController {
 	}
 	
 	// helper functions
-	func onLoginGetMessages() {
+	private func updateWithSelectedChannel() {
+		print("updating channel...")
+		channelLabel.text = "#\(MessageService.instance.selectedChannel?.name ?? "")"
+		getMessages()
+	}
+
+	private func onLoginGetMessages() {
 		MessageService.instance.findAllChannels { (success) in
 			if success { print("loading all channels...")
-				
+				if MessageService.instance.channels.count > 0 { // if have channels, set selected channel to first one
+					MessageService.instance.selectedChannel = MessageService.instance.channels.first
+					self.updateWithSelectedChannel()
+				} else {
+					self.channelLabel.text = "No Channel Yet"
+				}
 			}
 		}
 	}
 	
-	func updateWithSelectedChannel() {
-		print("updating channel...")
-		channelLabel.text = "#\(MessageService.instance.selectedChannel?.name ?? "")"
+	private func getMessages() {
+		guard let channelId = MessageService.instance.selectedChannel?._id else { return }
+		MessageService.instance.findAllMessagesForChannel(channelId: channelId) { (success) in
+			if success { print("loading all messages...")
+				
+			}
+		}
 	}
 	
 	// selector functions
