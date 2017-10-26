@@ -32,6 +32,7 @@ struct URLs {
 	static let login = URLs.base + "account/login"
 	static let addUser = URLs.base + "user/add"
 	static let findUserByEmail = URLs.base + "user/byEmail/" // + email address
+	static let getChannels = URLs.base + "channel"
 }
 
 // Headers
