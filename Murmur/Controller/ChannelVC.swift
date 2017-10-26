@@ -28,10 +28,14 @@ class ChannelVC: UIViewController {
 		
 		// listen to the Notification userDatDidChange
 		NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChange(_:)), name: NotificationName.userDataDidChange, object: nil)
+		// listen to the Notification channelsloaded
+		NotificationCenter.default.addObserver(self, selector: #selector(channelsDidLoad(_:)), name: NotificationName.channelsDidLoad, object: nil)
 		
 		// listen to SocketServie for getting channels
 		SocketService.instance.getChannels { (success) in
-			if success { self.channelTable.reloadData() }
+			if success { print("reloading channels...")
+				self.channelTable.reloadData()
+			}
 		}
 	}
 	
@@ -42,6 +46,7 @@ class ChannelVC: UIViewController {
 	
 	// selector functions
 	@objc func userDataDidChange(_ notification: Notification) { setupUserInfo() }
+	@objc func channelsDidLoad(_ notification: Notification) { channelTable.reloadData() }
 	
 	// helper functions
 	private func setupUserInfo() {
@@ -53,6 +58,7 @@ class ChannelVC: UIViewController {
 			loginButton.setTitle("Login", for: .normal)
 			userImage.image = UIImage(named: "menuProfileIcon")
 			userImage.backgroundColor = .clear
+			channelTable.reloadData()
 		}
 	}
 	
@@ -89,5 +95,15 @@ extension ChannelVC: UITableViewDataSource, UITableViewDelegate {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChannelCell
 		cell.channel = MessageService.instance.channels[indexPath.row]
 		return cell
+	}
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		// save selected channel
+		let channel = MessageService.instance.channels[indexPath.row]
+		MessageService.instance.selectedChannel = channel
+		print("#\(channel.name) selected...")
+		// notify a channel is selected
+		NotificationCenter.default.post(name: NotificationName.channelDidSelect, object: nil)
+		// transition to ChatVC
+		self.revealViewController().revealToggle(animated: true)
 	}
 }

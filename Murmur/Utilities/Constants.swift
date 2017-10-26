@@ -50,4 +50,6 @@ struct Colors {
 // Notifications
 struct NotificationName {
 	static let userDataDidChange = Notification.Name("notificationUserDataDidChange")
+	static let channelsDidLoad = Notification.Name("notificationChannelsDidLoad")
+	static let channelDidSelect = Notification.Name("notificationChannelDidSelect")
 }

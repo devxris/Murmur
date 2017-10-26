@@ -14,7 +14,9 @@ class MessageService {
 	
 	static let instance = MessageService()
 	
+	// variables
 	var channels = [Channel]()
+	var selectedChannel: Channel?
 	
 	func findAllChannels(completion: @escaping CompletionHandler) {
 		
@@ -28,6 +30,9 @@ class MessageService {
 					self.channels = try JSONDecoder().decode([Channel].self, from: data)
 				} catch let error { print(error.localizedDescription) }
 				print("\(self.channels.count) channels found...")
+				
+				// notify that all channels found
+				NotificationCenter.default.post(name: NotificationName.channelsDidLoad, object: nil)
 				completion(true)
 				
 				/* parse data with SwiftyJSON
@@ -45,5 +50,9 @@ class MessageService {
 				completion(false); debugPrint(response.result.error as Any)
 			}
 		}
+	}
+	
+	func clearChannels() {
+		channels.removeAll()
 	}
 }
