@@ -109,6 +109,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sp8-6k-U1A">
                                 <rect key="frame" x="273" y="87" width="22" height="22"/>
                                 <state key="normal" image="addChannel"/>
+                                <connections>
+                                    <action selector="addChannel:" destination="Eqa-2O-ZOI" eventType="touchUpInside" id="blA-im-YFE"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ozX-4k-u0Z" customClass="CircleImageView" customModule="Murmur" customModuleProvider="target">
                                 <rect key="frame" x="16" y="703" width="75" height="75"/>
