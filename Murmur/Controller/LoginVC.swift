@@ -42,7 +42,7 @@ class LoginVC: UIViewController {
 		guard let password = password.text, self.password.text != "" else { return }
 		
 		AuthService.instance.loginUser(email: email, password: password) { (success) in
-			if success { print("User logged in!")
+			if success { print("user logged in!")
 				AuthService.instance.findUserByEmail(completion: { (success) in
 					if success { print("populating user data info...")
 						NotificationCenter.default.post(name: NotificationName.userDataDidChange, object: nil)

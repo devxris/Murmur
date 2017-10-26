@@ -28,6 +28,11 @@ class ChannelVC: UIViewController {
 		
 		// listen to the Notification userDatDidChange
 		NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChange(_:)), name: NotificationName.userDataDidChange, object: nil)
+		
+		// listen to SocketServie for getting channels
+		SocketService.instance.getChannels { (success) in
+			if success { self.channelTable.reloadData() }
+		}
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {

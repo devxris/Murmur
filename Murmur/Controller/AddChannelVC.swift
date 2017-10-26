@@ -36,5 +36,15 @@ class AddChannelVC: UIViewController {
 	@IBAction func close(_ sender: UIButton) { dismiss(animated: true, completion: nil) }
 	
 	@IBAction func create(_ sender: RoundedButton) {
+		
+		guard let channelName = name.text, name.text != nil else { return }
+		guard let channelDesc = desc.text, desc.text != nil else { return }
+		
+		// emit newChannel to SocketService
+		SocketService.instance.addChannel(name: channelName, description: channelDesc) { (success) in
+			if success { print("creating and emitting new channel...")
+				self.dismiss(animated: true, completion: nil)
+			}
+		}
 	}
 }

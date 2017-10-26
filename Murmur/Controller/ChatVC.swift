@@ -35,7 +35,7 @@ class ChatVC: UIViewController {
 			
 			// find out all channels
 			MessageService.instance.findAllChannels { (success) in
-				if success { print("Loading all channels...")
+				if success { print("loading all channels...")
 					
 				}
 			}

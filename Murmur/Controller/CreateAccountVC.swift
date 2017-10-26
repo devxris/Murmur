@@ -66,11 +66,11 @@ class CreateAccountVC: UIViewController {
 		
 		// register -> login -> create user
 		AuthService.instance.registerUser(email: email, password: password) { (success) in
-			if success { print("User registered!")
+			if success { print("user registered!")
 				AuthService.instance.loginUser(email: email, password: password, completion: { (success) in
-					if success { print("User Logged in!")
+					if success { print("user Logged in!")
 						AuthService.instance.createUser(name: username, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
-							if success { print("User: \(UserDataService.instance.name) created!")
+							if success { print("user: \(UserDataService.instance.name) created!")
 								// stop spinner
 								self.spinner.isHidden = true
 								self.spinner.stopAnimating()

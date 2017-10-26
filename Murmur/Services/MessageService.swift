@@ -27,7 +27,7 @@ class MessageService {
 				do {
 					self.channels = try JSONDecoder().decode([Channel].self, from: data)
 				} catch let error { print(error.localizedDescription) }
-				print(self.channels)
+				print("\(self.channels.count) channels found...")
 				completion(true)
 				
 				/* parse data with SwiftyJSON
