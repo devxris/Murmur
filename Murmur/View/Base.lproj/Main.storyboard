@@ -131,7 +131,7 @@
                                 <rect key="frame" x="0.0" y="129" width="375" height="554"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="B3O-A0-3ew">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="B3O-A0-3ew" customClass="ChannelCell" customModule="Murmur" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B3O-A0-3ew" id="uaA-d2-IsN">
@@ -152,6 +152,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="name" destination="tny-y2-3gv" id="7fW-xq-ej2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -179,6 +182,7 @@
                         <viewLayoutGuide key="safeArea" id="Mfe-6R-gT8"/>
                     </view>
                     <connections>
+                        <outlet property="channelTable" destination="Iiu-Rl-b1Z" id="a3a-BU-blJ"/>
                         <outlet property="loginButton" destination="cUQ-JJ-Mdq" id="NMa-GV-rVg"/>
                         <outlet property="userImage" destination="ozX-4k-u0Z" id="EwF-9t-nQn"/>
                         <segue destination="csX-uK-Z7e" kind="show" identifier="ShowLoginVC" id="7KY-Gf-JwJ"/>

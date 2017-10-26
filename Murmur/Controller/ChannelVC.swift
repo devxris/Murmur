@@ -13,6 +13,12 @@ class ChannelVC: UIViewController {
 	// outlets
 	@IBOutlet weak var loginButton: UIButton!
 	@IBOutlet weak var userImage: CircleImageView!
+	@IBOutlet weak var channelTable: UITableView! {
+		didSet {
+			channelTable.dataSource = self
+			channelTable.delegate = self
+		}
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -58,4 +64,17 @@ class ChannelVC: UIViewController {
 	
 	// navigations
 	@IBAction func unwindToChannelVC(segue: UIStoryboardSegue) { }
+}
+
+extension ChannelVC: UITableViewDataSource, UITableViewDelegate {
+	
+	func numberOfSections(in tableView: UITableView) -> Int { return 1 }
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return MessageService.instance.channels.count
+	}
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChannelCell
+		cell.channel = MessageService.instance.channels[indexPath.row]
+		return cell
+	}
 }
