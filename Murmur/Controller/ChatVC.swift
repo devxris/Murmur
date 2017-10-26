@@ -24,5 +24,14 @@ class ChatVC: UIViewController {
 		// SWRevealViewController built-in slide back(pan) and tap back gestures
 		self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
 		self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+		
+		// check previous user logged in or not
+		if AuthService.instance.isLoggedIn {
+			AuthService.instance.findUserByEmail(completion: { (success) in
+				if success { print("previous user logged in!"); print("populating user data...")
+					NotificationCenter.default.post(name: NotificationName.userDataDidChange, object: nil)
+				}
+			})
+		}
 	}
 }

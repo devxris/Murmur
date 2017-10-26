@@ -31,11 +31,14 @@ struct URLs {
 	static let register = URLs.base + "account/register"
 	static let login = URLs.base + "account/login"
 	static let addUser = URLs.base + "user/add"
+	static let findUserByEmail = URLs.base + "user/byEmail/" // + email address
 }
 
 // Headers
 struct Header {
 	static let normal = ["Content-Type": "application/json; charset=utf-8"]
+	static let bearer = [ "Authorization": "Bearer " + AuthService.instance.authToken,
+	                      "Content-Type": "application/json; charset=utf-8"]
 }
 
 // Colors
