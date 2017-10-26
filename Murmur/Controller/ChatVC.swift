@@ -25,6 +25,14 @@ class ChatVC: UIViewController {
 			sendButton.layer.masksToBounds = true
 		}
 	}
+	@IBOutlet weak var messageTable: UITableView! {
+		didSet {
+			messageTable.dataSource = self
+			messageTable.delegate = self
+			messageTable.estimatedRowHeight = 80
+			messageTable.rowHeight = UITableViewAutomaticDimension
+		}
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -77,7 +85,7 @@ class ChatVC: UIViewController {
 		guard let channelId = MessageService.instance.selectedChannel?._id else { return }
 		MessageService.instance.findAllMessagesForChannel(channelId: channelId) { (success) in
 			if success { print("loading all messages...")
-				
+				self.messageTable.reloadData()
 			}
 		}
 	}
@@ -110,5 +118,18 @@ class ChatVC: UIViewController {
 				}
 			})
 		}
+	}
+}
+
+extension ChatVC: UITableViewDataSource, UITableViewDelegate {
+	
+	func numberOfSections(in tableView: UITableView) -> Int { return 1 }
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return MessageService.instance.messages.count
+	}
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MessageCell
+		cell.message = MessageService.instance.messages[indexPath.row]
+		return cell
 	}
 }

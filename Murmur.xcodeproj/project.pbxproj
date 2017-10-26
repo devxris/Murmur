@@ -17,6 +17,7 @@
 		4571D9761FA0992100FCC988 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571D9751FA0992100FCC988 /* AvatarCell.swift */; };
 		458C645E1FA1D14900D262AA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458C645D1FA1D14900D262AA /* Message.swift */; };
 		458C64601FA1DA6C00D262AA /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458C645F1FA1DA6C00D262AA /* KeyboardBoundView.swift */; };
+		458C64621FA1E02400D262AA /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458C64611FA1E02400D262AA /* MessageCell.swift */; };
 		458D95EE1FA0CFE0001140EA /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D95ED1FA0CFE0001140EA /* CircleImageView.swift */; };
 		45E9A0BC1FA03B3B00E8B911 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9A0BB1FA03B3B00E8B911 /* AppDelegate.swift */; };
 		45E9A0C11FA03B3B00E8B911 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E9A0BF1FA03B3B00E8B911 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		4571D9751FA0992100FCC988 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		458C645D1FA1D14900D262AA /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		458C645F1FA1DA6C00D262AA /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
+		458C64611FA1E02400D262AA /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		458D95ED1FA0CFE0001140EA /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		45E9A0B81FA03B3B00E8B911 /* Murmur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Murmur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E9A0BB1FA03B3B00E8B911 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				45E9A0BF1FA03B3B00E8B911 /* Main.storyboard */,
 				4571D9751FA0992100FCC988 /* AvatarCell.swift */,
 				45FCE63B1FA1A36100294B85 /* ChannelCell.swift */,
+				458C64611FA1E02400D262AA /* MessageCell.swift */,
 				4525F91E1FA0E58E00E431CB /* ProfileVC.xib */,
 				45FCE63E1FA1A97400294B85 /* AddChannelVC.xib */,
 			);
@@ -354,6 +357,7 @@
 				45FCE63C1FA1A36100294B85 /* ChannelCell.swift in Sources */,
 				45E9A0D81FA048E200E8B911 /* ChannelVC.swift in Sources */,
 				4571D9741FA097E400FCC988 /* AvatarPickerVC.swift in Sources */,
+				458C64621FA1E02400D262AA /* MessageCell.swift in Sources */,
 				458D95EE1FA0CFE0001140EA /* CircleImageView.swift in Sources */,
 				458C645E1FA1D14900D262AA /* Message.swift in Sources */,
 				45FCE63A1FA19DFE00294B85 /* Channel.swift in Sources */,
