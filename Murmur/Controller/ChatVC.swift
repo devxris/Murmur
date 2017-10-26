@@ -18,6 +18,13 @@ class ChatVC: UIViewController {
 			menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
 		}
 	}
+	@IBOutlet weak var messageBox: UITextField!
+	@IBOutlet weak var sendButton: UIButton! {
+		didSet {
+			sendButton.layer.cornerRadius = sendButton.frame.width / 2
+			sendButton.layer.masksToBounds = true
+		}
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -39,6 +46,11 @@ class ChatVC: UIViewController {
 				}
 			})
 		}
+		
+		// bind keyboard for typing user experience and tap to dismiss
+		view.bindToKeyboard()
+		let tap = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
+		view.addGestureRecognizer(tap)
 	}
 	
 	// helper functions
@@ -79,7 +91,24 @@ class ChatVC: UIViewController {
 		}
 	}
 	
-	@objc func channelDidSelect(_ notification: Notification) {
-		updateWithSelectedChannel()
+	@objc func channelDidSelect(_ notification: Notification) { updateWithSelectedChannel() }
+	@objc func closeKeyboard() { view.endEditing(true) }
+	
+	// target actions
+	@IBAction func send(_ sender: UIButton) {
+		if AuthService.instance.isLoggedIn {
+			// get message, userId and channelId for sending
+			guard let message = messageBox.text else { return }
+			guard let channelId = MessageService.instance.selectedChannel?._id else { return }
+			let userId = UserDataService.instance._id
+			
+			// emit newMessage to SocketService
+			SocketService.instance.addMessage(messageBody: message, userId: userId, channelId: channelId, completion: { (success) in
+				if success { print("sending new message...")
+					self.messageBox.text = ""
+					self.messageBox.resignFirstResponder()
+				}
+			})
+		}
 	}
 }
