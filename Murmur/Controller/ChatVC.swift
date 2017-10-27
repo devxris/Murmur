@@ -51,8 +51,9 @@ class ChatVC: UIViewController {
 		NotificationCenter.default.addObserver(self, selector: #selector(channelDidSelect(_:)), name: NotificationName.channelDidSelect, object: nil)
 		
 		// listen to the SocketService.on for real time message callback
-		SocketService.instance.getMessage { (success) in
-			if success {
+		SocketService.instance.getMessage { (newMessage) in
+			if newMessage.channelId == MessageService.instance.selectedChannel?._id && AuthService.instance.isLoggedIn {
+				MessageService.instance.messages.append(newMessage)
 				self.messageTable.reloadData()
 				// scroll down table to the bottom if many messages
 				if MessageService.instance.messages.count > 0 {

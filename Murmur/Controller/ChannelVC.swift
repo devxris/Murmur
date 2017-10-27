@@ -37,6 +37,14 @@ class ChannelVC: UIViewController {
 				self.channelTable.reloadData()
 			}
 		}
+		// listen to the SocketService.on for real time message callback for updating unread channel
+		SocketService.instance.getMessage { (newMessage) in
+			if newMessage.channelId != MessageService.instance.selectedChannel?._id && AuthService.instance.isLoggedIn {
+				// store the newMessage channel
+				MessageService.instance.unreadChannels.append(newMessage.channelId)
+				self.channelTable.reloadData()
+			}
+		}
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -101,6 +109,15 @@ extension ChannelVC: UITableViewDataSource, UITableViewDelegate {
 		let channel = MessageService.instance.channels[indexPath.row]
 		MessageService.instance.selectedChannel = channel
 		print("#\(channel.name) selected...")
+		
+		// deSelect the unread channels
+		if MessageService.instance.unreadChannels.count > 0 {
+			MessageService.instance.unreadChannels = MessageService.instance.unreadChannels.filter { $0 != channel._id }
+		}
+		let indexPath = IndexPath(row: indexPath.row, section: 0)
+		channelTable.reloadRows(at: [indexPath], with: .fade)
+		channelTable.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+		
 		// notify a channel is selected
 		NotificationCenter.default.post(name: NotificationName.channelDidSelect, object: nil)
 		// transition to ChatVC
