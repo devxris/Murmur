@@ -34,6 +34,9 @@ class ChatVC: UIViewController {
 		}
 	}
 	
+	// variables
+	var isTyping = false
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -45,6 +48,18 @@ class ChatVC: UIViewController {
 		NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChange(_:)), name: NotificationName.userDataDidChange, object: nil)
 		// listen to the Notification channelDidSelect
 		NotificationCenter.default.addObserver(self, selector: #selector(channelDidSelect(_:)), name: NotificationName.channelDidSelect, object: nil)
+		
+		// listen to the SocketService.on for real time message callback
+		SocketService.instance.getMessage { (success) in
+			if success {
+				self.messageTable.reloadData()
+				// scroll down table to the bottom if many messages
+				if MessageService.instance.messages.count > 0 {
+					let endIndexPath = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+					self.messageTable.scrollToRow(at: endIndexPath, at: .bottom, animated: true)
+				}
+			}
+		}
 		
 		// check previous user logged in or not
 		if AuthService.instance.isLoggedIn {
@@ -59,6 +74,9 @@ class ChatVC: UIViewController {
 		view.bindToKeyboard()
 		let tap = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
 		view.addGestureRecognizer(tap)
+		
+		// default to hide sendButton
+		sendButton.isHidden = true
 	}
 	
 	// helper functions
@@ -96,6 +114,7 @@ class ChatVC: UIViewController {
 			onLoginGetMessages() // get channels
 		} else {
 			channelLabel.text = "Please Log In"
+			messageTable.reloadData()
 		}
 	}
 	
@@ -115,8 +134,23 @@ class ChatVC: UIViewController {
 				if success { print("sending new message...")
 					self.messageBox.text = ""
 					self.messageBox.resignFirstResponder()
+					self.sendButton.isHidden = true
+					self.isTyping = false
 				}
 			})
+		}
+	}
+	
+	@IBAction func messageBoxEditing(_ sender: UITextField) {
+		// hide and show sendButton
+		if messageBox.text == "" {
+			isTyping = false
+			sendButton.isHidden = true
+		} else {
+			if !isTyping {
+				sendButton.isHidden = false
+				isTyping = true
+			}
 		}
 	}
 }
