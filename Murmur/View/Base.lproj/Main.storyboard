@@ -154,18 +154,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myT-U2-2Rm">
+                                <rect key="frame" x="8" y="716" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kCV-yo-gPr" firstAttribute="trailing" secondItem="nbC-Im-ydP" secondAttribute="trailing" id="2rh-GF-EhC"/>
+                            <constraint firstItem="myT-U2-2Rm" firstAttribute="leading" secondItem="nbC-Im-ydP" secondAttribute="leading" constant="8" id="AlH-RN-3pN"/>
                             <constraint firstItem="LFZ-t7-Hee" firstAttribute="leading" secondItem="nbC-Im-ydP" secondAttribute="leading" id="MVa-pn-9Bk"/>
                             <constraint firstItem="k4i-D6-LYf" firstAttribute="top" secondItem="LFZ-t7-Hee" secondAttribute="bottom" constant="30" id="SQR-DE-XtS"/>
                             <constraint firstItem="k4i-D6-LYf" firstAttribute="bottom" secondItem="nbC-Im-ydP" secondAttribute="bottom" id="TyL-Ni-I3w"/>
                             <constraint firstItem="LFZ-t7-Hee" firstAttribute="top" secondItem="kCV-yo-gPr" secondAttribute="bottom" id="UMH-tt-ZNs"/>
                             <constraint firstItem="kCV-yo-gPr" firstAttribute="leading" secondItem="nbC-Im-ydP" secondAttribute="leading" id="VcB-bz-Dcx"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="myT-U2-2Rm" secondAttribute="trailing" constant="20" symbolic="YES" id="Vm6-ke-a7k"/>
                             <constraint firstItem="nbC-Im-ydP" firstAttribute="trailing" secondItem="uCF-c4-23O" secondAttribute="trailing" constant="5" id="b88-Gy-8zP"/>
                             <constraint firstItem="LFZ-t7-Hee" firstAttribute="trailing" secondItem="nbC-Im-ydP" secondAttribute="trailing" id="e0p-yi-Abd"/>
                             <constraint firstItem="nbC-Im-ydP" firstAttribute="trailing" secondItem="k4i-D6-LYf" secondAttribute="trailing" id="hug-EU-bhA"/>
+                            <constraint firstItem="k4i-D6-LYf" firstAttribute="top" secondItem="myT-U2-2Rm" secondAttribute="bottom" constant="2" id="iIK-Rn-ja5"/>
                             <constraint firstItem="uCF-c4-23O" firstAttribute="centerY" secondItem="k4i-D6-LYf" secondAttribute="centerY" id="jLO-bB-O9w"/>
                             <constraint firstItem="kCV-yo-gPr" firstAttribute="top" secondItem="XU7-K5-Dz9" secondAttribute="top" id="lj6-AZ-tCs"/>
                             <constraint firstItem="k4i-D6-LYf" firstAttribute="leading" secondItem="nbC-Im-ydP" secondAttribute="leading" id="mim-9I-OkO"/>
@@ -178,11 +187,12 @@
                         <outlet property="messageBox" destination="k4i-D6-LYf" id="jQP-Oy-pvP"/>
                         <outlet property="messageTable" destination="LFZ-t7-Hee" id="elw-kM-XvD"/>
                         <outlet property="sendButton" destination="uCF-c4-23O" id="IaR-Za-85W"/>
+                        <outlet property="userTypingIndication" destination="myT-U2-2Rm" id="t5J-bt-nQq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkQ-CP-5x0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-287.19999999999999" y="239.40886699507391"/>
+            <point key="canvasLocation" x="-606" y="353"/>
         </scene>
         <!--ChannelVC-->
         <scene sceneID="Wnk-iS-feo">
@@ -291,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8a-BR-y8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-290.39999999999998" y="-423.39901477832512"/>
+            <point key="canvasLocation" x="-605" y="-546"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="eG1-KS-Pqy">
@@ -434,7 +444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WyX-Vu-NbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="370" y="-423"/>
+            <point key="canvasLocation" x="-154" y="-546"/>
         </scene>
         <!--Create AccountVC-->
         <scene sceneID="5PI-JJ-Jaw">
@@ -610,7 +620,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJS-3l-2Oa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ore-XR-ZJH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="-423"/>
+            <point key="canvasLocation" x="301" y="-546"/>
         </scene>
         <!--Avatar PickerVC-->
         <scene sceneID="gnt-38-hdD">
@@ -693,7 +703,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m82-nY-QG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1709.5999999999999" y="-423.39901477832512"/>
+            <point key="canvasLocation" x="732" y="-546"/>
         </scene>
     </scenes>
     <resources>

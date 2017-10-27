@@ -26,6 +26,7 @@ class SocketService: NSObject {
 	func establishConnection() { socket?.connect() }
 	func closeConnection() { socket?.disconnect() }
 	
+	// add and get channel
 	func addChannel(name: String, description: String, completion: @escaping CompletionHandler) {
 		socket?.emit("newChannel", name, description) // items must be in order
 		completion(true)
@@ -42,6 +43,7 @@ class SocketService: NSObject {
 		})
 	}
 	
+	// add and get message
 	func addMessage(messageBody: String, userId: String, channelId: String, completion: @escaping CompletionHandler) {
 		let user = UserDataService.instance
 		socket?.emit("newMessage", messageBody, userId, channelId, user.name, user.avatarName, user.avatarColor)
@@ -65,6 +67,14 @@ class SocketService: NSObject {
 			} else {
 				completion(false)
 			}
+		})
+	}
+	
+	// other typing users indication
+	func getOtherTypingUsers(_ completionHandler: @escaping (_ typingUsers: [String: String]) -> Void) {
+		socket?.on("userTypingUpdate", callback: { (dataArray, acknowledge) in
+			guard let typingUsers = dataArray[0] as? [String: String] else { return }
+			completionHandler(typingUsers)
 		})
 	}
 }

@@ -33,6 +33,7 @@ class ChatVC: UIViewController {
 			messageTable.rowHeight = UITableViewAutomaticDimension
 		}
 	}
+	@IBOutlet weak var userTypingIndication: UILabel!
 	
 	// variables
 	var isTyping = false
@@ -58,6 +59,32 @@ class ChatVC: UIViewController {
 					let endIndexPath = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
 					self.messageTable.scrollToRow(at: endIndexPath, at: .bottom, animated: true)
 				}
+			}
+		}
+		// listen to the SocketService.on for real time typing users callback
+		SocketService.instance.getOtherTypingUsers { (typingUsers) in
+			guard let channelId = MessageService.instance.selectedChannel?._id else { return }
+			var names = ""
+			var numberOfTypers = 0
+			for (typingUser, typingUserChannelId) in typingUsers {
+				// neglect current user while typing
+				if typingUser != UserDataService.instance.name && typingUserChannelId == channelId {
+					if names == "" {
+						names = typingUser
+					} else {
+						names += ", \(typingUser)"
+					}
+					numberOfTypers += 1
+				}
+			}
+			if numberOfTypers > 0 && AuthService.instance.isLoggedIn {
+				var verb = "is"
+				if numberOfTypers > 1 {
+					verb = "are"
+				}
+				self.userTypingIndication.text = "\(names) \(verb) typing..."
+			} else {
+				self.userTypingIndication.text = ""
 			}
 		}
 		
@@ -136,21 +163,30 @@ class ChatVC: UIViewController {
 					self.messageBox.resignFirstResponder()
 					self.sendButton.isHidden = true
 					self.isTyping = false
+					// emit stopType
+					SocketService.instance.socket?.emit("stopType", UserDataService.instance.name, channelId)
 				}
 			})
 		}
 	}
 	
 	@IBAction func messageBoxEditing(_ sender: UITextField) {
+		
+		guard let channelId = MessageService.instance.selectedChannel?._id else { return }
+		
 		// hide and show sendButton
 		if messageBox.text == "" {
 			isTyping = false
 			sendButton.isHidden = true
+			// emit stopType
+			SocketService.instance.socket?.emit("stopType", UserDataService.instance.name, channelId)
 		} else {
-			if !isTyping {
+			if isTyping == false {
 				sendButton.isHidden = false
-				isTyping = true
+				// emit startType
+				SocketService.instance.socket?.emit("startType", UserDataService.instance.name, channelId)
 			}
+			isTyping = true
 		}
 	}
 }
