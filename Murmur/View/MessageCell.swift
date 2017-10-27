@@ -21,7 +21,8 @@ class MessageCell: UITableViewCell {
 			username.text = message?.userName
 			userImage.image = UIImage(named: message?.userAvatar ?? "")
 			userImage.backgroundColor = UserDataService.instance.returnUIColor(components: message?.userAvatarColor ?? "")
-			// 2017-10-27T13:33:50.590Z for ISO8601 format
+			// 2017-10-27T13:33:50Z for ISO8601 format
+			// 2017-10-27T13:33:50.590Z for coming back timeStamp format
 			guard var isoDate = message?.timeStamp else { return }
 			let endIndex = isoDate.index(isoDate.endIndex, offsetBy: -5)
 			isoDate = String(isoDate[..<endIndex])
